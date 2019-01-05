@@ -1,85 +1,83 @@
-# faker.js - generate massive amounts of fake data in the browser and node.js
+# faker.js - Générateur de données factuelles en arabe et français pour le navigateur et Node.js
 
-![Faker.js](https://raw.githubusercontent.com/Marak/faker.js/master/logo.png)
+![Faker.js](http://imgur.com/KiinQ.png)
 
-[![Build Status](https://travis-ci.org/Marak/faker.js.svg?branch=master)](https://travis-ci.org/Marak/faker.js) [![Coverage Status](https://coveralls.io/repos/github/Marak/faker.js/badge.svg?branch=master)](https://coveralls.io/github/Marak/faker.js?branch=master)
+## Description
 
-[![npm version](https://badge.fury.io/js/faker.svg)](http://badge.fury.io/js/faker)
+Cette version de faker.js est une version spécialisée qui génère exclusivement des données en arabe et en français. Elle est conçue pour fonctionner à la fois dans le navigateur et dans Node.js.
 
-[![OpenCollective](https://opencollective.com/fakerjs/backers/badge.svg)](#backers)
-[![OpenCollective](https://opencollective.com/fakerjs/sponsors/badge.svg)](#sponsors)
+### الوصف
+هذه النسخة من faker.js هي نسخة متخصصة تولد حصراً البيانات باللغة العربية والفرنسية. مصممة للعمل في المتصفح و Node.js.
 
-## Demo
+## Démo
 
-[https://rawgit.com/Marak/faker.js/master/examples/browser/index.html](https://rawgit.com/Marak/faker.js/master/examples/browser/index.html)
+[https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html](https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html)
 
-## Hosted API Microservice
+## Utilisation
 
-[http://faker.hook.io](http://faker.hook.io/)
- - Supports all Faker API Methods
- - Full-Featured Microservice
- - Hosted by [hook.io](http://hook.io)
-
-```bash
-curl http://faker.hook.io?property=name.findName&locale=de
-```
-
-## Usage
-
-### Browser
-
+### Navigateur
+```html
     <script src = "faker.js" type = "text/javascript"></script>
     <script>
-      var randomName = faker.name.findName(); // Caitlyn Kerluke
-      var randomEmail = faker.internet.email(); // Rusty@arne.info
-      var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+      // En français
+      var randomName = faker.name.findName(); // Marie Dupont
+      var randomEmail = faker.internet.email(); // marie.dupont@email.fr
+      var randomCard = faker.helpers.createCard(); // carte de contact aléatoire
+      
+      // En arabe
+      faker.locale = "ar";
+      var randomName = faker.name.findName(); // محمد أحمد
+      var randomEmail = faker.internet.email(); // mohammed.ahmed@email.com
+      var randomCard = faker.helpers.createCard(); // بطاقة اتصال عشوائية
     </script>
+```
 
 ### Node.js
-
+```js
     var faker = require('faker');
 
-    var randomName = faker.name.findName(); // Rowan Nikolaus
-    var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-    var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+    // En français
+    var randomName = faker.name.findName(); // Pierre Martin
+    var randomEmail = faker.internet.email(); // pierre.martin@email.fr
+    var randomCard = faker.helpers.createCard(); // carte de contact aléatoire
+
+    // En arabe
+    faker.locale = "ar";
+    var randomName = faker.name.findName(); // أحمد محمد
+    var randomEmail = faker.internet.email(); // ahmed.mohammed@email.com
+    var randomCard = faker.helpers.createCard(); // بطاقة اتصال عشوائية
+```
 
 ## API
 
 
 ### Faker.fake()
 
-faker.js contains a super useful generator method `Faker.fake` for combining faker API methods using a mustache string format.
+faker.js contient une méthode de générateur très utile `Faker.fake` pour combiner les méthodes de l'API faker en utilisant un format de chaîne mustache.
 
-**Example:**
+**Exemple :**
 
 ``` js
 console.log(faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"));
-// outputs: "Marks, Dean Sr."
+// En français: "Dupont, Marie Mme."
+// En arabe: "أحمد، محمد السيد"
 ```
 
-This will interpolate the format string with the value of methods `name.lastName()`, `name.firstName()`, and `name.suffix()`
+Cela interpolera la chaîne de format avec la valeur des méthodes `name.lastName()`, `name.firstName()` et `name.suffix()`
 
 ### JSDoc API Browser
 
 [http://marak.github.io/faker.js/](http://marak.github.io/faker.js/)
 
-### API Methods
+### Méthodes de l'API
 
 * address
   * zipCode
   * city
-  * cityPrefix
-  * citySuffix
   * streetName
   * streetAddress
-  * streetSuffix
-  * streetPrefix
-  * secondaryAddress
-  * county
   * country
-  * countryCode
   * state
-  * stateAbbr
   * latitude
   * longitude
 * commerce
@@ -87,235 +85,158 @@ This will interpolate the format string with the value of methods `name.lastName
   * department
   * productName
   * price
-  * productAdjective
-  * productMaterial
-  * product
 * company
-  * suffixes
   * companyName
   * companySuffix
   * catchPhrase
-  * bs
-  * catchPhraseAdjective
-  * catchPhraseDescriptor
-  * catchPhraseNoun
-  * bsAdjective
-  * bsBuzz
-  * bsNoun
-* database
-  * column
-  * type
-  * collation
-  * engine
 * date
   * past
   * future
   * between
   * recent
-  * soon
-  * month
-  * weekday
-* fake
 * finance
   * account
   * accountName
-  * mask
   * amount
-  * transactionType
   * currencyCode
-  * currencyName
-  * currencySymbol
-  * bitcoinAddress
-  * ethereumAddress
-  * iban
-  * bic
-* hacker
-  * abbreviation
-  * adjective
-  * noun
-  * verb
-  * ingverb
-  * phrase
+  * creditCardNumber
 * helpers
   * randomize
-  * slugify
-  * replaceSymbolWithNumber
-  * replaceSymbols
-  * shuffle
-  * mustache
   * createCard
-  * contextualCard
-  * userCard
   * createTransaction
 * image
   * image
   * avatar
   * imageUrl
-  * abstract
-  * animals
-  * business
-  * cats
-  * city
-  * food
-  * nightlife
-  * fashion
-  * people
-  * nature
-  * sports
-  * technics
-  * transport
-  * dataUri
 * internet
-  * avatar
   * email
-  * exampleEmail
   * userName
-  * protocol
   * url
   * domainName
-  * domainSuffix
-  * domainWord
-  * ip
-  * ipv6
-  * userAgent
-  * color
-  * mac
-  * password
 * lorem
   * word
   * words
   * sentence
-  * slug
-  * sentences
   * paragraph
-  * paragraphs
-  * text
-  * lines
 * name
   * firstName
   * lastName
   * findName
-  * jobTitle
-  * prefix
-  * suffix
   * title
-  * jobDescriptor
-  * jobArea
-  * jobType
 * phone
   * phoneNumber
-  * phoneNumberFormat
-  * phoneFormats
 * random
   * number
-  * float
   * arrayElement
-  * objectElement
   * uuid
   * boolean
   * word
-  * words
-  * image
-  * locale
-  * alphaNumeric
-  * hexaDecimal
-* system
-  * fileName
-  * commonFileName
-  * mimeType
-  * commonFileType
-  * commonFileExt
-  * fileType
-  * fileExt
-  * directoryPath
-  * filePath
-  * semver
 
 
-## Localization
+## Localisation
 
-As of version `v2.0.0` faker.js has support for multiple localities.
+Cette version supporte uniquement deux langues : l'arabe et le français.
 
-The default language locale is set to English.
+### هذه النسخة تدعم لغتين فقط: العربية والفرنسية.
 
-Setting a new locale is simple:
+La langue par défaut est le français.
+
+### اللغة الافتراضية هي الفرنسية.
+
+Définir une nouvelle langue est simple :
 
 ```js
-// sets locale to de
-faker.setLocale("de");
-// or
-faker.locale = "de";
+// Définit la langue en arabe
+faker.locale = "ar";
+
+// Définit la langue en français
+faker.locale = "fr";
 ```
 
- * az
- * cz
- * de
- * de_AT
- * de_CH
- * en
- * en_AU
- * en_BORK
- * en_CA
- * en_GB
- * en_IE
- * en_IND
- * en_US
- * en_ZA
- * en_au_ocker
- * es
- * es_MX
- * fa
- * fr
- * fr_CA
- * ge
- * id_ID
- * it
- * ja
- * ko
- * nb_NO
- * nep
- * nl
- * pl
- * pt_BR
- * pt_PT
- * ru
- * sk
- * sv
- * tr
- * uk
- * vi
- * zh_CN
- * zh_TW
+Langues disponibles :
+* ar (العربية)
+* fr (Français)
 
+### Paquets de localisation individuels
 
-### Individual Localization Packages
+Par défaut, l'exigence de `faker` inclura toutes les données de localisation.
 
-As of vesion `v3.0.0` faker.js supports incremental loading of locales.
-
-By default, requiring `faker` will include *all* locale data.
-
-In a production environment, you may only want to include the locale data for a specific set of locales.
+Dans un environnement de production, vous pouvez souhaiter inclure uniquement les données de localisation pour une langue spécifique.
 
 ```js
-// loads only de locale
-var faker = require('faker/locale/de');
+// Charge uniquement la langue française
+var faker = require('faker/locale/fr');
+
+// Charge uniquement la langue arabe
+var faker = require('faker/locale/ar');
 ```
 
-## Setting a randomness seed
+## Définir une graine aléatoire
 
-If you want consistent results, you can set your own seed:
+Si vous voulez des résultats cohérents, vous pouvez définir votre propre graine :
 
 ```js
 faker.seed(123);
 
 var firstRandom = faker.random.number();
 
-// Setting the seed again resets the sequence.
+// Définir la graine à nouveau réinitialise la séquence.
 faker.seed(123);
 
 var secondRandom = faker.random.number();
 
-console.log(firstRandom === secondRandom);
+console.log(firstRandom === secondRandom); // true
+```
+
+## Interface HTML Autonome
+
+Cette version inclut une interface HTML autonome qui peut être servie sur un serveur pour générer des données aléatoires.
+
+### هذه النسخة تتضمن واجهة HTML مستقلة يمكن تقديمها على خادم لتوليد بيانات عشوائية.
+
+Pour utiliser l'interface HTML :
+
+1. Copiez le fichier `index.html` dans le répertoire `examples/`
+2. Servez le fichier sur votre serveur web préféré
+3. Ouvrez l'interface dans votre navigateur
+4. Sélectionnez les options de génération souhaitées
+5. Cliquez sur "Générer" pour obtenir les données
+
+### لاستخدام واجهة HTML:
+
+1. انسخ ملف `index.html` في المجلد `examples/`
+2. قدم الملف على خادم الويب المفضل لديك
+3. افتح الواجهة في متصفحك
+4. حدد خيارات التوليد المطلوبة
+5. انقر على "توليد" للحصول على البيانات
+
+Exemple avec un serveur Node.js simple :
+
+```js
+var http = require('http');
+var fs = require('fs');
+var path = require('path');
+
+var server = http.createServer(function(req, res) {
+    if (req.url === '/' || req.url === '/index.html') {
+        fs.readFile(path.join(__dirname, 'examples/index.html'), function(err, data) {
+            if (err) {
+                res.writeHead(500);
+                res.end('Erreur du serveur');
+                return;
+            }
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(data);
+        });
+    } else {
+        res.writeHead(404);
+        res.end('Non trouvé');
+    }
+});
+
+server.listen(3000, function() {
+    console.log('Serveur en cours d\'exécution sur http://localhost:3000');
+});
 ```
 
 ## Tests
@@ -323,59 +244,29 @@ console.log(firstRandom === secondRandom);
     npm install .
     make test
 
-You can view a code coverage report generated in coverage/lcov-report/index.html.
+Vous pouvez consulter un rapport de couverture de code généré dans coverage/lcov-report/index.html.
 
-## Projects Built with faker.js
+## Construction de faker.js
 
-### Fake JSON Schema
-
-Use faker generators to populate JSON Schema samples.
-See: https://github.com/pateketrueke/json-schema-faker/
-
-### CLI
-
-Run faker generators from Command Line.
-See: https://github.com/lestoni/faker-cli
-
-**Want to see your project added here? Let us know!**
-
-### Meteor
-
-#### Meteor Installation
-
-```
-meteor add practicalmeteor:faker
-```
-
-#### Meteor Usage, both client and server
-
-```js
-var randomName = faker.name.findName(); // Rowan Nikolaus
-var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-var randomCard = faker.helpers.createCard(); // random contact card containing many properties
-```
-
-## Building faker.js
-
-faker uses [gulp](http://gulpjs.com/) to automate it's build process. Running the following build command will generate new browser builds, documentation, and code examples for the project.
+faker utilise [gulp](http://gulpjs.com/) pour automatiser son processus de construction. L'exécution de la commande de construction suivante générera de nouvelles constructions de navigateur, de la documentation et des exemples de code pour le projet.
 
 ```
 npm run-script build
 ```
 
-## Building JSDocs
+## Construction de JSDocs
 
 ```
 npm run-script doc
 ```
 
-## Version Release Schedule
+## Calendrier de publication de version
 
-faker.js is a popular project used by many organizations and individuals in production settings. Major and Minor version releases are generally on a monthly schedule. Bugs fixes are addressed by severity and fixed as soon as possible.
+faker.js est un projet populaire utilisé par de nombreuses organisations et personnes dans des environnements de production. Les versions majeures et mineures sont généralement publiées mensuellement. Les corrections de bugs sont traitées par gravité et corrigées dès que possible.
 
-If you require the absolute latest version of `faker.js` the `master` branch @ http://github.com/marak/faker.js/ should always be up to date and working.
+Si vous avez besoin de la version absolument la plus récente de `faker.js`, la branche `master` à http://github.com/marak/faker.js/ devrait toujours être à jour et fonctionnelle.
 
-## Maintainer
+## Mainteneur
 
 #### Marak Squires
 
@@ -383,7 +274,7 @@ faker.js - Copyright (c) 2017
 Marak Squires
 http://github.com/marak/faker.js/
 
-faker.js was inspired by and has used data definitions from:
+faker.js a été inspiré par et a utilisé des définitions de données de :
 
  * https://github.com/stympy/faker/ - Copyright (c) 2007-2010 Benjamin Curtis
  * http://search.cpan.org/~jasonk/Data-Faker-0.07/ - Copyright 2004-2005 by Jason Kohles
@@ -406,75 +297,3 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-## Backers
-
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/fakerjs#backer)]
-
-<a href="https://opencollective.com/fakerjs/backer/0/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/0/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/1/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/1/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/2/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/2/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/3/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/3/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/4/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/4/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/5/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/5/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/6/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/6/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/7/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/7/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/8/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/8/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/9/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/9/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/10/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/10/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/11/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/11/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/12/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/12/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/13/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/13/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/14/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/14/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/15/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/15/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/16/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/16/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/17/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/17/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/18/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/18/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/19/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/19/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/20/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/20/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/21/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/21/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/22/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/22/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/23/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/23/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/24/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/24/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/25/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/25/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/26/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/26/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/27/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/27/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/28/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/28/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/backer/29/website" target="_blank"><img src="https://opencollective.com/fakerjs/backer/29/avatar.svg"></a>
-
-## Sponsors
-
-Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/fakerjs#sponsor)]
-
-<a href="https://opencollective.com/fakerjs/sponsor/0/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/1/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/2/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/3/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/4/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/5/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/6/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/7/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/8/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/9/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/9/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/10/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/10/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/11/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/11/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/12/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/12/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/13/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/13/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/14/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/14/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/15/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/15/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/16/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/16/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/17/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/17/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/18/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/18/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/19/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/19/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/20/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/20/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/21/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/21/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/22/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/22/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/23/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/23/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/24/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/24/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/25/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/25/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/26/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/26/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/27/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/27/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/28/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/28/avatar.svg"></a>
-<a href="https://opencollective.com/fakerjs/sponsor/29/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/29/avatar.svg"></a>
