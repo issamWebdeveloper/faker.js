@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Données - Arabic & French</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .arabic-text {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .form-section {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+            border-right: 2px solid #eee;
+        }
+        
+        .output-section {
+            flex: 1;
+            min-width: 300px;
+            padding-left: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checkbox-item:hover {
+            background: #e9ecef;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .output-container {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 400px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .output-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .output-content {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .output-empty {
+            text-align: center;
+            color: #999;
+            padding: 50px 20px;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #5568d3;
+        }
+        
+        .output-container {
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .form-section {
+                border-right: none;
+                border-bottom: 2px solid #eee;
+                padding-right: 0;
+                padding-bottom: 30px;
+            }
+            
+            .output-section {
+                padding-left: 0;
+                padding-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Générateur de Données</h1>
+            <p>Générateur de données factuelles en arabe et français</p>
+            <p class="arabic-text">مولد بيانات وهمية باللغة العربية والفرنسية</p>
+        </div>
+        
+        <div class="content">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="locale">Langue / اللغة:</label>
+                    <select id="locale">
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataType">Type de données / نوع البيانات:</label>
+                    <select id="dataType">
+                        <option value="person">Personne / شخص</option>
+                        <option value="address">Adresse / عنوان</option>
+                        <option value="company">Entreprise / شركة</option>
+                        <option value="internet">Internet</option>
+                        <option value="commerce">Commerce</option>
+                        <option value="phone">Téléphone / هاتف</option>
+                        <option value="custom">Personnalisé / مخصص</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="count">Nombre d'objets / عدد العناصر:</label>
+                    <input type="number" id="count" value="1" min="1" max="100">
+                </div>
+                
+                <div class="form-group" id="customFields" style="display: none;">
+                    <label>Champs personnalisés / حقول مخصصة:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="firstName" checked>
+                            <label for="firstName">Prénom / الاسم الأول</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lastName" checked>
+                            <label for="lastName">Nom / اللقب</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="email" checked>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="phone">
+                            <label for="phone">Téléphone / هاتف</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="address">
+                            <label for="address">Adresse / عنوان</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="company">
+                            <label for="company">Entreprise / شركة</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="jobTitle">
+                            <label for="jobTitle">Titre du poste / المسمى الوظيفي</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="date">
+                            <label for="date">Date / تاريخ</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="generateData()">
+                    Générer / توليد
+                </button>
+            </div>
+            
+            <div class="output-section">
+                <div class="output-container">
+                    <button class="copy-btn" onclick="copyOutput()">Copier / نسخ</button>
+                    <div class="output-title">Résultat / النتيجة</div>
+                    <div class="output-content" id="output">
+                        <div class="output-empty">
+                            Cliquez sur "Générer" pour créer des données<br>
+                            انقر على "توليد" لإنشاء البيانات
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../build/build/faker.js"></script>
+    <script>
+        // Show/hide custom fields based on data type selection
+        document.getElementById('dataType').addEventListener('change', function() {
+            var customFields = document.getElementById('customFields');
+            if (this.value === 'custom') {
+                customFields.style.display = 'block';
+            } else {
+                customFields.style.display = 'none';
+            }
+        });
+        
+        function generateData() {
+            var locale = document.getElementById('locale').value;
+            var dataType = document.getElementById('dataType').value;
+            var count = parseInt(document.getElementById('count').value) || 1;
+            
+            // Set locale
+            faker.locale = locale;
+            
+            var results = [];
+            
+            for (var i = 0; i < count; i++) {
+                var data = {};
+                
+                switch(dataType) {
+                    case 'person':
+                        data = {
+                            firstName: faker.name.firstName(),
+                            lastName: faker.name.lastName(),
+                            fullName: faker.name.findName(),
+                            email: faker.internet.email(),
+                            phone: faker.phone.phoneNumber(),
+                            title: faker.name.title()
+                        };
+                        break;
+                        
+                    case 'address':
+                        data = {
+                            street: faker.address.streetAddress(),
+                            city: faker.address.city(),
+                            state: faker.address.state(),
+                            zipCode: faker.address.zipCode(),
+                            country: faker.address.country()
+                        };
+                        break;
+                        
+                    case 'company':
+                        data = {
+                            companyName: faker.company.companyName(),
+                            companySuffix: faker.company.companySuffix(),
+                            catchPhrase: faker.company.catchPhrase(),
+                            bs: faker.company.bs()
+                        };
+                        break;
+                        
+                    case 'internet':
+                        data = {
+                            email: faker.internet.email(),
+                            userName: faker.internet.userName(),
+                            domainName: faker.internet.domainName(),
+                            url: faker.internet.url(),
+                            ipAddress: faker.internet.ip()
+                        };
+                        break;
+                        
+                    case 'commerce':
+                        data = {
+                            productName: faker.commerce.productName(),
+                            price: faker.commerce.price(),
+                            department: faker.commerce.department(),
+                            color: faker.commerce.color()
+                        };
+                        break;
+                        
+                    case 'phone':
+                        data = {
+                            phoneNumber: faker.phone.phoneNumber(),
+                            phoneNumberFormat: faker.phone.phoneNumberFormat()
+                        };
+                        break;
+                        
+                    case 'custom':
+                        if (document.getElementById('firstName').checked) {
+                            data.firstName = faker.name.firstName();
+                        }
+                        if (document.getElementById('lastName').checked) {
+                            data.lastName = faker.name.lastName();
+                        }
+                        if (document.getElementById('email').checked) {
+                            data.email = faker.internet.email();
+                        }
+                        if (document.getElementById('phone').checked) {
+                            data.phone = faker.phone.phoneNumber();
+                        }
+                        if (document.getElementById('address').checked) {
+                            data.address = {
+                                street: faker.address.streetAddress(),
+                                city: faker.address.city(),
+                                state: faker.address.state(),
+                                zipCode: faker.address.zipCode()
+                            };
+                        }
+                        if (document.getElementById('company').checked) {
+                            data.company = faker.company.companyName();
+                        }
+                        if (document.getElementById('jobTitle').checked) {
+                            data.jobTitle = faker.name.jobTitle();
+                        }
+                        if (document.getElementById('date').checked) {
+                            data.date = faker.date.recent();
+                        }
+                        break;
+                }
+                
+                results.push(data);
+            }
+            
+            // Display results
+            var output = document.getElementById('output');
+            output.innerHTML = '<pre>' + JSON.stringify(results, null, 2) + '</pre>';
+        }
+        
+        function copyOutput() {
+            var output = document.getElementById('output');
+            var text = output.innerText;
+            
+            if (text && !text.includes('Cliquez sur')) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('Copié dans le presse-papier! / تم النسخ إلى الحافظة!');
+                }).catch(function(err) {
+                    console.error('Erreur de copie: ', err);
+                    alert('Erreur lors de la copie / خطأ في النسخ');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
