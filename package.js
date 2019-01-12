@@ -5,7 +5,7 @@ Npm.depends({
 
 Package.describe({
   summary: "Generate massive amounts of fake data in node.js and in the browser.",
-  name: "practicalmeteor:faker",
+  name: "practicalmeteor:wahmee",
   version: "3.0.1_1",
   git: "https://github.com/practicalmeteor/meteor-faker.git",
   documentation: 'Readme.md'

@@ -1,6 +1,6 @@
 {
-  "name": "faker",
-  "description": "Generate massive amounts of fake contextual data",
+  "name": "wahmee",
+  "description": "Wahmee.js (وهمي) - Generate massive amounts of fake data in the browser and node.js",
   "version": "4.1.0",
   "contributors": [
     "Marak Squires <marak.squires@gmail.com>"
