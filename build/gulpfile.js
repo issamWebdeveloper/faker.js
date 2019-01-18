@@ -1,11 +1,11 @@
 /*
 
-  gulpfile.js - gulp script for building Faker package for browser / stand-alone package
+  gulpfile.js - gulp script for building Wahmee package for browser / stand-alone package
   run this file using the gulp command
   
-  If this is your first time trying to build faker, you will need to install gulp:
+  If this is your first time trying to build wahmee, you will need to install gulp:
 
-    cd faker.js/
+    cd wahmee.js/
     [sudo] npm install
     [sudo] npm install gulp -g
     cd build/
@@ -31,31 +31,31 @@ gulp.task('browser-package', function() {
 
      this task will generate the following files:
 
-      ./build/faker.js
-      ./build/faker.min.js
-      ../examples/browser/js/faker.js
-      ../examples/browser/js/faker.min.js
+      ./build/wahmee.js
+      ./build/wahmee.min.js
+      ../examples/browser/js/wahmee.js
+      ../examples/browser/js/wahmee.min.js
 
   */
 
   var browserified = transform(function(filename) { 
     // use browserify to create UMD stand-alone browser package
     var b = browserify(filename, {
-      standalone: 'faker'
+      standalone: 'wahmee'
     });
     return b.bundle();
   });
 
   return gulp.src('../index.js')
     .pipe(browserified)
-    .pipe(rename('faker.js'))
+    .pipe(rename('wahmee.js'))
     .pipe(gulp.dest('build/'))
     .pipe(gulp.dest('../examples/browser/js'))
     .pipe(rename({ extname: ".min.js" }))
     .pipe(uglify())
     .pipe(gulp.dest('build/'))
     .pipe(gulp.dest('../examples/browser/js'))
-    .pipe(rename('../examples/browser/js/faker.min.js'));
+    .pipe(rename('../examples/browser/js/wahmee.min.js'));
 });
 
 // pushes jsdoc changes to gh-pages branch
@@ -70,7 +70,7 @@ gulp.task('jsdoc', function (cb) {
         .pipe(jsdoc(config, cb));
 });
 
-// builds Readme.md file from docs.md and exported faker methods
+// builds Readme.md file from docs.md and exported wahmee methods
 gulp.task('documentation', function(cb) {
 
   /* task for generating documentation
@@ -82,14 +82,14 @@ gulp.task('documentation', function(cb) {
   */
 
   var API = '', LOCALES = '';
-  var faker = require('../index');
+  var wahmee = require('../index');
   
   // generate locale list
-  for (var locale in faker.locales) {
+  for (var locale in wahmee.locales) {
     LOCALES += ' * ' + locale + '\n';
   }
 
-  var keys = Object.keys(faker);
+  var keys = Object.keys(wahmee);
   keys = keys.sort();
 
   // generate nice tree of api for docs
@@ -133,21 +133,21 @@ Object.keys(locales).forEach(function(locale, i) {
     var browserified = transform(function(filename) {
       // use browserify to create UMD stand-alone browser package
       var b = browserify(filename, {
-        standalone: 'faker'
+        standalone: 'wahmee'
       });
       return b.bundle();
     });
     process.chdir('../locale/');
     return gulp.src('./' + locale + '.js')
       .pipe(browserified)
-      .pipe(rename('faker.' + locale + '.js'))
+      .pipe(rename('wahmee.' + locale + '.js'))
       .pipe(gulp.dest('../build/build/locales/' + locale))
       .pipe(gulp.dest('../examples/browser/locales/' + locale + "/"))
       .pipe(rename({ extname: ".min.js" }))
       .pipe(uglify())
       .pipe(gulp.dest('../build/build/locales/' + locale))
       .pipe(gulp.dest('../examples/browser/locales/' + locale + '/'))
-      .pipe(rename('../examples/browser/locales/' + locale + '/' + 'faker.' + locale + 'min.js'));
+      .pipe(rename('../examples/browser/locales/' + locale + '/' + 'wahmee.' + locale + 'min.js'));
 
    });
 });
