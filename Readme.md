@@ -1,23 +1,23 @@
-# faker.js - Générateur de données factuelles en arabe et français pour le navigateur et Node.js
+# wahmee.js - Générateur de données factuelles en arabe et français pour le navigateur et Node.js
 
-![Faker.js](http://imgur.com/KiinQ.png)
+![Wahmee.js](http://imgur.com/KiinQ.png)
 
 ## Description
 
-Cette version de faker.js est une version spécialisée qui génère exclusivement des données en arabe et en français. Elle est conçue pour fonctionner à la fois dans le navigateur et dans Node.js.
+Cette version de wahmee.js est une version spécialisée qui génère exclusivement des données en arabe et en français. Elle est conçue pour fonctionner à la fois dans le navigateur et dans Node.js.
 
 ### الوصف
-هذه النسخة من faker.js هي نسخة متخصصة تولد حصراً البيانات باللغة العربية والفرنسية. مصممة للعمل في المتصفح و Node.js.
+هذه النسخة من wahmee.js هي نسخة متخصصة تولد حصراً البيانات باللغة العربية والفرنسية. مصممة للعمل في المتصفح و Node.js.
 
 ## Démo
 
-[https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html](https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html)
+[https://cdn.rawgit.com/Marak/wahmee.js/master/examples/browser/index.html](https://cdn.rawgit.com/Marak/wahmee.js/master/examples/browser/index.html)
 
 ## Utilisation
 
 ### Navigateur
 ```html
-    <script src = "faker.js" type = "text/javascript"></script>
+    <script src = "wahmee.js" type = "text/javascript"></script>
     <script>
       // En français
       var randomName = faker.name.findName(); // Marie Dupont
@@ -34,7 +34,7 @@ Cette version de faker.js est une version spécialisée qui génère exclusiveme
 
 ### Node.js
 ```js
-    var faker = require('faker');
+    var faker = require(.wahmee.);
 
     // En français
     var randomName = faker.name.findName(); // Pierre Martin
@@ -51,9 +51,9 @@ Cette version de faker.js est une version spécialisée qui génère exclusiveme
 ## API
 
 
-### Faker.fake()
+### Wahmee.fake()
 
-faker.js contient une méthode de générateur très utile `Faker.fake` pour combiner les méthodes de l'API faker en utilisant un format de chaîne mustache.
+wahmee.js contient une méthode de générateur très utile `Faker.fake` pour combiner les méthodes de l'API faker en utilisant un format de chaîne mustache.
 
 **Exemple :**
 
@@ -67,7 +67,7 @@ Cela interpolera la chaîne de format avec la valeur des méthodes `name.lastNam
 
 ### JSDoc API Browser
 
-[http://marak.github.io/faker.js/](http://marak.github.io/faker.js/)
+[http://marak.github.io/wahmee.js/](http://marak.github.io/wahmee.js/)
 
 ### Méthodes de l'API
 
@@ -165,10 +165,10 @@ Dans un environnement de production, vous pouvez souhaiter inclure uniquement le
 
 ```js
 // Charge uniquement la langue française
-var faker = require('faker/locale/fr');
+var faker = require('wahmee/locale/fr');
 
 // Charge uniquement la langue arabe
-var faker = require('faker/locale/ar');
+var faker = require('wahmee/locale/ar');
 ```
 
 ## Définir une graine aléatoire
@@ -246,7 +246,7 @@ server.listen(3000, function() {
 
 Vous pouvez consulter un rapport de couverture de code généré dans coverage/lcov-report/index.html.
 
-## Construction de faker.js
+## Construction de wahmee.js
 
 faker utilise [gulp](http://gulpjs.com/) pour automatiser son processus de construction. L'exécution de la commande de construction suivante générera de nouvelles constructions de navigateur, de la documentation et des exemples de code pour le projet.
 
@@ -262,19 +262,19 @@ npm run-script doc
 
 ## Calendrier de publication de version
 
-faker.js est un projet populaire utilisé par de nombreuses organisations et personnes dans des environnements de production. Les versions majeures et mineures sont généralement publiées mensuellement. Les corrections de bugs sont traitées par gravité et corrigées dès que possible.
+wahmee.js est un projet populaire utilisé par de nombreuses organisations et personnes dans des environnements de production. Les versions majeures et mineures sont généralement publiées mensuellement. Les corrections de bugs sont traitées par gravité et corrigées dès que possible.
 
-Si vous avez besoin de la version absolument la plus récente de `faker.js`, la branche `master` à http://github.com/marak/faker.js/ devrait toujours être à jour et fonctionnelle.
+Si vous avez besoin de la version absolument la plus récente de `wahmee.js`, la branche `master` à http://github.com/marak/wahmee.js/ devrait toujours être à jour et fonctionnelle.
 
 ## Mainteneur
 
 #### Marak Squires
 
-faker.js - Copyright (c) 2017
+wahmee.js - Copyright (c) 2017
 Marak Squires
-http://github.com/marak/faker.js/
+http://github.com/marak/wahmee.js/
 
-faker.js a été inspiré par et a utilisé des définitions de données de :
+wahmee.js a été inspiré par et a utilisé des définitions de données de :
 
  * https://github.com/stympy/faker/ - Copyright (c) 2007-2010 Benjamin Curtis
  * http://search.cpan.org/~jasonk/Data-Faker-0.07/ - Copyright 2004-2005 by Jason Kohles
