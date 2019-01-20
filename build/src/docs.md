@@ -1,66 +1,66 @@
-# faker.js - generate massive amounts of fake data in the browser and node.js
+# Wahmee.js (وهمي) - Generate massive amounts of fake data in browser and node.js
 
-![Faker.js](http://imgur.com/KiinQ.png)
+![Wahmee.js](http://imgur.com/KiinQ.png)
 
-[![Build Status](https://travis-ci.org/Marak/faker.js.svg?branch=master)](https://travis-ci.org/Marak/faker.js)
+[![Build Status](https://travis-ci.org/Marak/wahmee.js.svg?branch=master)](https://travis-ci.org/Marak/wahmee.js)
 
-[![npm version](https://badge.fury.io/js/faker.svg)](http://badge.fury.io/js/faker)
+[![npm version](https://badge.fury.io/js/wahmee.svg)](http://badge.fury.io/js/wahmee)
 
 ## Demo
 
-[https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html](https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html)
+[https://cdn.rawgit.com/Marak/wahmee.js/master/examples/browser/index.html](https://cdn.rawgit.com/Marak/wahmee.js/master/examples/browser/index.html)
 
 ## Hosted API Microservice
 
-[http://faker.hook.io](http://faker.hook.io/)
- - Supports all Faker API Methods
+[http://wahmee.hook.io](http://wahmee.hook.io/)
+ - Supports all Wahmee API Methods
  - Full-Featured Microservice
  - Hosted by [hook.io](http://hook.io)
 
 ```bash
-curl http://faker.hook.io?property=name.findName&locale=de
+curl http://wahmee.hook.io?property=name.findName&locale=de
 ```
 
 ## Usage
 
 ### Browser
 ```html
-    <script src = "faker.js" type = "text/javascript"></script>
+    <script src = "wahmee.js" type = "text/javascript"></script>
     <script>
-      var randomName = faker.name.findName(); // Caitlyn Kerluke
-      var randomEmail = faker.internet.email(); // Rusty@arne.info
-      var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+      var randomName = wahmee.name.findName(); // Caitlyn Kerluke
+      var randomEmail = wahmee.internet.email(); // Rusty@arne.info
+      var randomCard = wahmee.helpers.createCard(); // random contact card containing many properties
     </script>
 ```
 ### Node.js
 ```js
-    var faker = require('faker');
+    var wahmee = require('wahmee');
 
-    var randomName = faker.name.findName(); // Rowan Nikolaus
-    var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-    var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+    var randomName = wahmee.name.findName(); // Rowan Nikolaus
+    var randomEmail = wahmee.internet.email(); // Kassandra.Haley@erich.biz
+    var randomCard = wahmee.helpers.createCard(); // random contact card containing many properties
 ```
 ## API
 
 
-### Faker.fake()
+### Wahmee.fake()
 
-faker.js contains a super useful generator method `Faker.fake` for combining faker API methods using a mustache string format.
+wahmee.js contains a super useful generator method `Wahmee.fake` for combining wahmee API methods using a mustache string format.
 
 **Example:**
 
 {{=<% %>=}}
 ``` js
-console.log(faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"));
+console.log(wahmee.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"));
 // outputs: "Marks, Dean Sr."
 ```
 <%={{ }}=%>
 
-This will interpolate the format string with the value of methods `name.lastName()`, `name.firstName()`, and `name.suffix()`
+This will interpolate format string with value of methods `name.lastName()`, `name.firstName()`, and `name.suffix()`
 
 ### JSDoc API Browser
 
-[http://marak.github.io/faker.js/](http://marak.github.io/faker.js/)
+[http://marak.github.io/wahmee.js/](http://marak.github.io/wahmee.js/)
 
 ### API Methods
 
@@ -68,7 +68,7 @@ This will interpolate the format string with the value of methods `name.lastName
 
 ## Localization
 
-As of version `v2.0.0` faker.js has support for multiple localities.
+As of version `v2.0.0` wahmee.js has support for multiple localities.
 
 The default language locale is set to English.
 
@@ -76,22 +76,22 @@ Setting a new locale is simple:
 
 ```js
 // sets locale to de
-faker.locale = "de";
+wahmee.locale = "de";
 ```
 
 {{LOCALES}}
 
 ### Individual Localization Packages
 
-As of vesion `v3.0.0` faker.js supports incremental loading of locales. 
+As of vesion `v3.0.0` wahmee.js supports incremental loading of locales. 
 
-By default, requiring `faker` will include *all* locale data.
+By default, requiring `wahmee` will include *all* locale data.
 
-In a production environment, you may only want to include the locale data for a specific set of locales.
+In a production environment, you may only want to include locale data for a specific set of locales.
 
 ```js
 // loads only de locale
-var faker = require('faker/locale/de');
+var wahmee = require('wahmee/locale/de');
 ```
 
 ## Setting a randomness seed
@@ -99,14 +99,14 @@ var faker = require('faker/locale/de');
 If you want consistent results, you can set your own seed:
 
 ```js
-faker.seed(123);
+wahmee.seed(123);
 
-var firstRandom = faker.random.number();
+var firstRandom = wahmee.random.number();
 
-// Setting the seed again resets the sequence.
-faker.seed(123);
+// Setting seed again resets sequence.
+wahmee.seed(123);
 
-var secondRandom = faker.random.number();
+var secondRandom = wahmee.random.number();
 
 console.log(firstRandom === secondRandom);
 ```
@@ -118,21 +118,21 @@ console.log(firstRandom === secondRandom);
 
 You can view a code coverage report generated in coverage/lcov-report/index.html.
 
-## Projects Built with faker.js
+## Projects Built with wahmee.js
 
 ### Fake JSON Schema
 
-Use faker generators to populate JSON Schema samples.
+Use wahmee generators to populate JSON Schema samples.
 See: https://github.com/pateketrueke/json-schema-faker/
 
 ### CLI
 
-Run faker generators from Command Line.
+Run wahmee generators from Command Line.
 See: https://github.com/lestoni/faker-cli
 
 ### Mocker data generator
 
-Minimal JSON data generator, fakerJs is one of the providers.
+Minimal JSON data generator, wahmeeJs is one of the providers.
 See:  https://github.com/danibram/mocker-data-generator
 
 **Want to see your project added here? Let us know!**
@@ -142,20 +142,20 @@ See:  https://github.com/danibram/mocker-data-generator
 #### Meteor Installation
 
 ```
-meteor add practicalmeteor:faker
+meteor add practicalmeteor:wahmee
 ```
 
 #### Meteor Usage, both client and server
 
 ```js
-var randomName = faker.name.findName(); // Rowan Nikolaus
-var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+var randomName = wahmee.name.findName(); // Rowan Nikolaus
+var randomEmail = wahmee.internet.email(); // Kassandra.Haley@erich.biz
+var randomCard = wahmee.helpers.createCard(); // random contact card containing many properties
 ```
 
-## Building faker.js
+## Building wahmee.js
 
-faker uses [gulp](http://gulpjs.com/) to automate it's build process. Running the following build command will generate new browser builds, documentation, and code examples for the project.
+wahmee uses [gulp](http://gulpjs.com/) to automate it's build process. Running following build command will generate new browser builds, documentation, and code examples for project.
 
 ```
 npm run-script build
@@ -169,19 +169,19 @@ npm run-script doc
 
 ## Version Release Schedule
 
-faker.js is a popular project used by many organizations and individuals in production settings. Major and Minor version releases are generally on a monthly schedule. Bugs fixes are addressed by severity and fixed as soon as possible.
+wahmee.js is a popular project used by many organizations and individuals in production settings. Major and Minor version releases are generally on a monthly schedule. Bugs fixes are addressed by severity and fixed as soon as possible.
 
-If you require the absolute latest version of `faker.js` the `master` branch @ http://github.com/marak/faker.js/ should always be up to date and working.
+If you require absolute latest version of `wahmee.js` `master` branch @ http://github.com/marak/wahmee.js/ should always be up to date and working.
 
 ## Maintainer
 
 #### Marak Squires
 
-faker.js - Copyright (c) 2017
+wahmee.js - Copyright (c) 2017
 Marak Squires
-http://github.com/marak/faker.js/
+http://github.com/marak/wahmee.js/
 
-faker.js was inspired by and has used data definitions from:
+wahmee.js was inspired by and has used data definitions from:
 
  * https://github.com/stympy/faker/ - Copyright (c) 2007-2010 Benjamin Curtis
  * http://search.cpan.org/~jasonk/Data-Faker-0.07/ - Copyright 2004-2005 by Jason Kohles
@@ -189,7 +189,7 @@ faker.js was inspired by and has used data definitions from:
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
+without limitation rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
@@ -204,5 +204,3 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
