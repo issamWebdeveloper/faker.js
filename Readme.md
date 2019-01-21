@@ -157,6 +157,22 @@ Langues disponibles :
 * ar (العربية)
 * fr (Français)
 
+### Compatibilité rétroactive
+
+Le projet a été renommé de `faker.js` à `wahmee.js` (وهمي). Pour la compatibilité rétroactive, vous pouvez toujours utiliser l'ancien nom :
+
+```js
+// Utilisation avec l'ancien nom (toujours supporté)
+var faker = require('faker');
+
+// Utilisation avec le nouveau nom
+var wahmee = require('wahmee');
+
+// Les deux fonctionnent de la même manière
+faker.name.findName(); // Pierre Martin
+wahmee.name.findName(); // Pierre Martin
+```
+
 ### Paquets de localisation individuels
 
 Par défaut, l'exigence de `faker` inclura toutes les données de localisation.
