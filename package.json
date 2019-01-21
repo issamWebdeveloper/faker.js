@@ -12,6 +12,8 @@
   "scripts": {
     "lint": "node_modules/.bin/jshint ./lib --config ./.jshintrc",
     "test": "node_modules/.bin/mocha test/*.*.js",
+    "test:watch": "node_modules/.bin/mocha test/*.*.js --watch",
+    "test:coverage": "nyc --reporter=text --reporter=html node_modules/.bin/mocha test/*.*.js",
     "build": "cd build && ../node_modules/.bin/gulp && cd ../",
     "doc": "jsdoc -c conf.json -t ./node_modules/ink-docstrap/template -R README.md lib",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -39,7 +41,12 @@
       "lcov",
       "clover"
     ],
-    "report-dir": "./reports/coverage"
+    "report-dir": "./reports/coverage",
+    "check-coverage": true,
+    "lines": 80,
+    "statements": 80,
+    "branches": 80,
+    "functions": 80
   },
   "devDependencies": {
     "browserify": "5.11.1",
