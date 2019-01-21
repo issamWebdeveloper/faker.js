@@ -1,6 +1,6 @@
 # wahmee.js - Générateur de données factuelles en arabe et français pour le navigateur et Node.js
 
-![Wahmee.js](http://imgur.com/KiinQ.png)
+![Wahmee.js](wahmee-logo.png)
 
 ## Description
 
