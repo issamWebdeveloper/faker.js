@@ -1,4 +1,5 @@
 # Run on new travis container (docker) based infrastructure
+# Travis CI configuration for Wahmee.js (وهمي) - Generate massive amounts of fake data in the browser and node.js
 sudo: false
 language: node_js
 node_js:
@@ -27,4 +28,5 @@ before_install:
 
 script:
   - "npm test"
+  - "npm run test:coverage"
   - 'if [ "$(node -v)" = "v0.10.36" ]; then spacejam test-packages --mongo-url=dummy ./; fi'
