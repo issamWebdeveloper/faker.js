@@ -1,7 +1,9 @@
-var faker = require('../locale/en');
+var wahmee = require('../../index');
+var faker = wahmee; // Backward compatibility alias
 
+wahmee.locale = "en";
 console.log(faker.name.findName());
 
-var faker = require('../locale/uk');
+wahmee.locale = "uk";
 
 console.log(faker.name.findName());

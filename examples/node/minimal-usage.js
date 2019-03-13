@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var faker = require('../../index');
+var wahmee = require('../../index');
+var faker = wahmee; // Backward compatibility alias
 faker.locale = "en";
 
 //console.log(faker.lorem.sentences())

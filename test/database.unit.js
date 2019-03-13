@@ -1,7 +1,8 @@
 if (typeof module !== 'undefined') {
     var assert = require('assert');
     var sinon = require('sinon');
-    var faker = require('../index');
+    var wahmee = require('../index');
+    var faker = wahmee; // Backward compatibility alias
 }
 
 describe("database.js", function () {

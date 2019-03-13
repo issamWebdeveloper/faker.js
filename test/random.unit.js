@@ -2,7 +2,8 @@ if (typeof module !== 'undefined') {
     var assert = require('assert');
     var sinon = require('sinon');
     var _ = require('lodash');
-    var faker = require('../index');
+    var wahmee = require('../index');
+    var faker = wahmee; // Backward compatibility alias
     var mersenne = require('../vendor/mersenne');
 }
 

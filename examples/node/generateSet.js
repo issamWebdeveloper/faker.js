@@ -1,6 +1,7 @@
 var fs = require('fs');
 
-var faker = require('../../index');
+var wahmee = require('../../index');
+var faker = wahmee; // Backward compatibility alias
 
 
 // generate dataSet as example

@@ -1,7 +1,8 @@
 if (typeof module !== 'undefined') {
     var assert = require('assert'),
         sinon = require('sinon'),
-        faker = require('../index');
+        wahmee = require('../index');
+    var faker = wahmee; // Backward compatibility alias
 }
 
 describe("commerce.js", function() {

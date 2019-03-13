@@ -1,4 +1,5 @@
-var faker = require('../../index');
+var wahmee = require('../../index');
+var faker = wahmee; // Backward compatibility alias
 
 var emails = {};
 var conflicts = 0;
@@ -19,7 +20,7 @@ for (var i = 0; i < 100000; i++) {
     // found a unique new item
     emails[email] = true;
   } else {
-    // found a conflicting item ( should not happen using faker.unique() )
+    // found a conflicting item (should not happen using faker.unique() )
     conflicts++;
   }
 }
