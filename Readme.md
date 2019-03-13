@@ -119,6 +119,24 @@ Cette version de wahmee.js est une version spécialisée qui génère exclusivem
     var dashAddress = faker.finance.dashAddress(); // X7yWpZx6R5fD8E5Z8f5E
     var walletType = faker.finance.cryptoWalletType(); // محفظة ساخنة
     var transactionHash = faker.finance.cryptoTransactionHash(); // 0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4bfafe041d8
+
+    // Module Food - Alimentation
+    faker.locale = "fr";
+    var dish = faker.food.dish(); // Boeuf Bourguignon
+    var ingredient = faker.food.ingredient(); // Tomate
+    var restaurant = faker.food.restaurantName(); // Le Petit Bistro
+    var cuisine = faker.food.cuisineType(); // Française
+    var fruit = faker.food.fruit(); // Pomme
+    var vegetable = faker.food.vegetable(); // Carotte
+    
+    // En arabe
+    faker.locale = "ar";
+    var dish = faker.food.dish(); // لحم البقر بورغينيون
+    var ingredient = faker.food.ingredient(); // طماطم
+    var restaurant = faker.food.restaurantName(); // البيسترو الصغير
+    var cuisine = faker.food.cuisineType(); // فرنسية
+    var fruit = faker.food.fruit(); // تفاح
+    var vegetable = faker.food.vegetable(); // جزر
 ```
 
 ## API
@@ -227,6 +245,13 @@ Cela interpolera la chaîne de format avec la valeur des méthodes `name.lastNam
   * lawyerTitle
   * legalDocument
   * caseNumber
+* food
+  * dish
+  * ingredient
+  * restaurantName
+  * cuisineType
+  * fruit
+  * vegetable
 
 
 ## Localisation
