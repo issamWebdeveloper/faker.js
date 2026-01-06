@@ -46,6 +46,79 @@ Cette version de wahmee.js est une version spécialisée qui génère exclusivem
     var randomName = faker.name.findName(); // أحمد محمد
     var randomEmail = faker.internet.email(); // ahmed.mohammed@email.com
     var randomCard = faker.helpers.createCard(); // بطاقة اتصال عشوائية
+
+    // Module Education - Données éducatives
+    var university = faker.education.universityName(); // Université Paris-Saclay
+    var degree = faker.education.degree(); // Master
+    var subject = faker.education.subject(); // Informatique
+    var campus = faker.education.campus(); // Campus de Jussieu
+    
+    // En arabe
+    faker.locale = "ar";
+    var university = faker.education.universityName(); // جامعة الملك سعود
+    var degree = faker.education.degree(); // ماجستير
+    var subject = faker.education.subject(); // علوم الحاسوب
+    var campus = faker.education.campus(); // الحرم الجامعي الرئيسي
+
+    // Module Medical - Données médicales
+    var symptom = faker.medical.symptom(); // Mal de tête
+    var medication = faker.medical.medication(); // Paracétamol
+    var specialty = faker.medical.medicalSpecialty(); // Cardiologie
+    var hospital = faker.medical.hospitalName(); // Hôpital Saint-Louis
+    var diagnosis = faker.medical.diagnosis(); // Grippe
+    
+    // En arabe
+    faker.locale = "ar";
+    var symptom = faker.medical.symptom(); // صداع
+    var medication = faker.medical.medication(); // باراسيتامول
+    var specialty = faker.medical.medicalSpecialty(); // أمراض القلب
+    var hospital = faker.medical.hospitalName(); // مستشفى الملك فيصل
+    var diagnosis = faker.medical.diagnosis(); // إنفلونزا
+
+    // Module Transport - Données de transport
+    var airport = faker.transport.airportName(); // Aéroport de Paris-Charles de Gaulle
+    var airportCode = faker.transport.airportCode(); // CDG
+    var station = faker.transport.trainStation(); // Gare de Paris-Nord
+    var airline = faker.transport.airline(); // Air France
+    var flight = faker.transport.flightNumber(); // AF1234
+    
+    // En arabe
+    faker.locale = "ar";
+    var airport = faker.transport.airportName(); // مطار الملك خالد الدولي
+    var airportCode = faker.transport.airportCode(); // RUH
+    var station = faker.transport.trainStation(); // محطة الرياض المركزية
+    var airline = faker.transport.airline(); // الخطوط الجوية السعودية
+    var flight = faker.transport.flightNumber(); // SV1234
+
+    // Module Legal - Données juridiques
+    var contract = faker.legal.contractType(); // Contrat de travail
+    var court = faker.legal.courtName(); // Tribunal de Grande Instance de Paris
+    var lawyer = faker.legal.lawyerTitle(); // Avocat
+    var document = faker.legal.legalDocument(); // Acte de naissance
+    var caseNum = faker.legal.caseNumber(); // 2024/12345
+    
+    // En arabe
+    faker.locale = "ar";
+    var contract = faker.legal.contractType(); // عقد عمل
+    var court = faker.legal.courtName(); // المحكمة العامة في الرياض
+    var lawyer = faker.legal.lawyerTitle(); // محامي
+    var document = faker.legal.legalDocument(); // شهادة ميلاد
+    var caseNum = faker.legal.caseNumber(); // 2024/12345
+
+    // Module Finance - Crypto-monnaies
+    var litecoinAddress = faker.finance.litecoinAddress(); // LZ7yWpZx6R5fD8E5Z8f5E
+    var rippleAddress = faker.finance.rippleAddress(); // rL4qWpZx6R5fD8E5Z8f5E
+    var dashAddress = faker.finance.dashAddress(); // X7yWpZx6R5fD8E5Z8f5E
+    var walletType = faker.finance.cryptoWalletType(); // Portefeuille chaud
+    var transactionHash = faker.finance.cryptoTransactionHash(); // 0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4bfafe041d8
+    
+    // En arabe
+    faker.locale = "ar";
+    var litecoinAddress = faker.finance.litecoinAddress(); // LZ7yWpZx6R5fD8E5Z8f5E
+    var rippleAddress = faker.finance.rippleAddress(); // rL4qWpZx6R5fD8E5Z8f5E
+    var dashAddress = faker.finance.dashAddress(); // X7yWpZx6R5fD8E5Z8f5E
+    var walletType = faker.finance.cryptoWalletType(); // محفظة ساخنة
+    var transactionHash = faker.finance.cryptoTransactionHash(); // 0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4bfafe041d8
 ```
 
 ## API
@@ -131,6 +204,29 @@ Cela interpolera la chaîne de format avec la valeur des méthodes `name.lastNam
   * uuid
   * boolean
   * word
+* education
+  * universityName
+  * degree
+  * subject
+  * campus
+* medical
+  * symptom
+  * medication
+  * medicalSpecialty
+  * hospitalName
+  * diagnosis
+* transport
+  * airportName
+  * airportCode
+  * trainStation
+  * airline
+  * flightNumber
+* legal
+  * contractType
+  * courtName
+  * lawyerTitle
+  * legalDocument
+  * caseNumber
 
 
 ## Localisation
